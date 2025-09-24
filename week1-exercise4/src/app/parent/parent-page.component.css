@@ -1,0 +1,6 @@
+.btn{ padding:.4rem .6rem; border:1px solid #ccc; border-radius:6px; background:#f8f8f8; cursor:pointer; }
+.btn:hover{ background:#eee; }
+/* Section spacing previously applied inline */
+.section.spaced{ border-top:1px solid #ddd; padding-top:1rem; margin-top:1rem; }
+/* Actions row replacing inline flex styles */
+.actions{ display:flex; gap:.5rem; flex-wrap:wrap; }

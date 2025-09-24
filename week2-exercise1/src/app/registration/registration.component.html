@@ -1,0 +1,107 @@
+<div class="registration-container">
+  <h2>User Registration</h2>
+  
+  <form #registrationForm="ngForm" (ngSubmit)="onSubmit(registrationForm)" *ngIf="!submitted; else successMessage">
+    <!-- Name Field -->
+    <div class="form-group">
+      <label for="name">Full Name</label>
+      <input 
+        type="text" 
+        id="name" 
+        name="name" 
+        [(ngModel)]="user.name" 
+        #name="ngModel"
+        required 
+        minlength="3"
+        class="form-control"
+        [class.is-invalid]="isFieldInvalid(name)"
+        (blur)="name.control.markAsTouched()">
+      <div *ngIf="isFieldInvalid(name)" class="error-message">
+        {{ getErrorMessage(name) }}
+      </div>
+    </div>
+
+    <!-- Email Field -->
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input 
+        type="email" 
+        id="email" 
+        name="email" 
+        [(ngModel)]="user.email" 
+        #email="ngModel"
+        required 
+        email
+        class="form-control"
+        [class.is-invalid]="isFieldInvalid(email)"
+        (blur)="email.control.markAsTouched()">
+      <div *ngIf="isFieldInvalid(email)" class="error-message">
+        {{ getErrorMessage(email) }}
+      </div>
+    </div>
+
+    <!-- Password Field -->
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input 
+        type="password" 
+        id="password" 
+        name="password" 
+        [(ngModel)]="user.password" 
+        #password="ngModel"
+        required 
+        minlength="6"
+        class="form-control"
+        [class.is-invalid]="isFieldInvalid(password)"
+        (blur)="password.control.markAsTouched()">
+      <div *ngIf="isFieldInvalid(password)" class="error-message">
+        {{ getErrorMessage(password) }}
+      </div>
+      <small class="form-text text-muted">Password must be at least 6 characters long</small>
+    </div>
+
+    <!-- Role Selection -->
+    <div class="form-group">
+      <label for="role">Role</label>
+      <select 
+        id="role" 
+        name="role" 
+        [(ngModel)]="user.role" 
+        #role="ngModel"
+        class="form-control"
+        required>
+        <option value="" disabled selected>Select a role</option>
+        <option *ngFor="let role of roles" [value]="role.id">{{ role.name }}</option>
+      </select>
+      <div *ngIf="isFieldInvalid(role)" class="error-message">
+        {{ getErrorMessage(role) }}
+      </div>
+    </div>
+
+    <!-- Form Actions -->
+    <div class="form-actions">
+      <button 
+        type="submit" 
+        class="btn btn-primary"
+        [disabled]="registrationForm.invalid">
+        Register
+      </button>
+      <button 
+        type="button" 
+        class="btn btn-secondary"
+        (click)="registrationForm.resetForm()">
+        Reset
+      </button>
+    </div>
+  </form>
+
+  <!-- Success Message Template -->
+  <ng-template #successMessage>
+    <div class="success-message">
+      <h3>Registration Successful!</h3>
+      <p>Thank you for registering, {{ user.name }}!</p>
+      <p>You have registered with the role: {{ selectedRoleName }}</p>
+      <button class="btn btn-primary" (click)="onNewRegistration()">Register Another User</button>
+    </div>
+  </ng-template>
+</div>

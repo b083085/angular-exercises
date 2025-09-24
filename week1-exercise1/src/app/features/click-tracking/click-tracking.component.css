@@ -1,0 +1,39 @@
+ .click-row {
+     display: flex;
+     gap: 0.5rem;
+     justify-content: center;
+     margin: 1rem 0;
+ }
+
+ .btn {
+     padding: 0.5rem 0.9rem;
+     border-radius: 6px;
+     border: 1px solid #d0d7de;
+     cursor: pointer;
+ }
+
+ .btn.primary {
+     background: #1976d2;
+     color: #fff;
+     border-color: #1976d2;
+ }
+
+ .btn.secondary {
+     background: #2e7d32;
+     color: #fff;
+     border-color: #2e7d32;
+ }
+
+ .btn.ghost {
+     background: #fff;
+ }
+
+ .btn:active {
+     transform: translateY(1px);
+ }
+
+ .counts {
+     max-width: 420px;
+     margin: 0 auto;
+     text-align: left;
+ }

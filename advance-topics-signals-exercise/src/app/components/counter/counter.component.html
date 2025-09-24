@@ -1,0 +1,57 @@
+<div class="counter-container">
+  <div class="counter-card">
+    <header class="counter-header">
+      <h1>Angular Signals Counter</h1>
+    </header>
+
+    <div class="counter-display">
+      <div class="count-value" [ngClass]="countColorClass">
+        {{ countDisplay }}
+      </div>
+      
+      <div class="parity-display">
+        <div class="parity-info" [style.color]="parityColor()">
+          {{ parityDisplay() }}
+        </div>
+        
+        <div class="parity-indicators">
+          <div class="parity-badge even" [class.active]="isEven()">
+            Even
+          </div>
+          <div class="parity-badge odd" [class.active]="isOdd()">
+            Odd
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="counter-actions">
+      <button 
+        class="action-btn decrement-btn" 
+        (click)="decrement()"
+        [disabled]="count() <= -10"
+        title="Decrement counter">
+        <span class="btn-icon">−</span>
+        Decrement
+      </button>
+      
+      <button 
+        class="action-btn reset-btn" 
+        (click)="reset()"
+        [disabled]="isZero()"
+        title="Reset counter to zero">
+        <span class="btn-icon">↻</span>
+        Reset
+      </button>
+      
+      <button 
+        class="action-btn increment-btn" 
+        (click)="increment()"
+        [disabled]="count() >= 10"
+        title="Increment counter">
+        <span class="btn-icon">+</span>
+        Increment
+      </button>
+    </div>
+  </div>
+</div>

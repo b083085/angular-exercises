@@ -1,0 +1,15 @@
+<h2>Responsive Class Directive</h2>
+<p>Resize the window to see the class applied change. Default breakpoints:</p>
+<ul class="legend">
+  <li><span class="chip is-sm"></span> <code>is-sm</code> up to 599px</li>
+  <li><span class="chip is-md"></span> <code>is-md</code> 600px to 1023px</li>
+  <li><span class="chip is-lg"></span> <code>is-lg</code> 1024px and above</li>
+</ul>
+
+<div class="responsive-box" [appResponsiveClass]="[
+  { max: 599, class: 'is-sm' },
+  { min: 600, max: 1023, class: 'is-md' },
+  { min: 1024, class: 'is-lg' }
+]">
+  Current class changes with width
+</div>

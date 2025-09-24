@@ -1,0 +1,21 @@
+<div class="user-container">
+  <h2>User Data</h2>
+
+  <div class="controls">
+    <button (click)="loadUsers()" [disabled]="loading">Load All Users</button>
+    <button (click)="loadUserById(1)" [disabled]="loading">Load User 1</button>
+  </div>
+
+  <div *ngIf="loading" class="loading">Loading...</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <div *ngIf="users.length > 0" class="user-list">
+    <div *ngFor="let user of users" class="user-card">
+      <h3>{{ user.name }}</h3>
+      <p><strong>Username:</strong> {{ user.username }}</p>
+      <p><strong>Email:</strong> {{ user.email }}</p>
+      <p><strong>Phone:</strong> {{ user.phone }}</p>
+      <p><strong>Website:</strong> {{ user.website }}</p>
+    </div>
+  </div>
+</div>

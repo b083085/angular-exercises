@@ -1,0 +1,18 @@
+ h1 {
+  transition: color 0.3s ease;
+  margin-bottom: 0.5rem;
+}
+
+.highlight {
+  transform: scale(1.05);
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  max-width: 320px;
+  margin: 0.5rem auto 1rem;
+  text-align: left;
+}

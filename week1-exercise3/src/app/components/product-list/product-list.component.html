@@ -1,0 +1,23 @@
+<div class="product-list">
+  <h3>Products</h3>
+
+  <div class="toolbar">
+    <input
+      type="text"
+      placeholder="Search products (name, category, description)"
+      [(ngModel)]="term"
+    />
+    <span class="count">Showing {{ (products | search: term:['name','category','description']).length }} of {{ products.length }}</span>
+  </div>
+
+  <ul>
+    <li *ngFor="let p of products | search: term:['name','category','description']">
+      <div class="title">
+        <span class="name">{{ p.name }}</span>
+        <span class="category">{{ p.category }}</span>
+      </div>
+      <div class="desc">{{ p.description }}</div>
+      <div class="price">{{ p.price | currencyLocale: p.locale : p.currency }}</div>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,35 @@
+<div class="container">
+  <h1>User List with NgRx</h1>
+  
+  <div class="section">
+    <h2>Local Users</h2>
+    <div *ngIf="loading$ | async">Loading users...</div>
+    
+    <div *ngIf="error$ | async as error">
+      Error loading users: {{ error }}
+    </div>
+    
+    <button (click)="loadUsers()">Reload Local Users</button>
+  </div>
+  
+  <div class="section">
+    <h2>API Users</h2>
+    <div *ngIf="apiLoading$ | async">Loading users from API...</div>
+    
+    <div *ngIf="apiError$ | async as error">
+      Error loading users from API: {{ error }}
+    </div>
+    
+    <button (click)="fetchUsersFromApi()">Fetch Users from API</button>
+  </div>
+  
+  <div class="user-list">
+    <h3>User List</h3>
+    <ul *ngIf="users$ | async as users">
+      <li *ngFor="let user of users">
+        {{ user.name }} ({{ user.email }})
+      </li>
+    </ul>
+    <div *ngIf="(users$ | async)?.length === 0">No users found</div>
+  </div>
+</div>

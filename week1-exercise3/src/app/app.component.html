@@ -1,0 +1,11 @@
+<div class="container">
+   <h2>Currency Locale Pipe</h2>
+   <ul>
+     <li>US (USD): {{ 1234.56 | currencyLocale:'en-US':'USD' }}</li>
+     <li>Germany (EUR): {{ 1234.56 | currencyLocale:'de-DE':'EUR' }}</li>
+     <li>Japan (JPY): {{ 1234.56 | currencyLocale:'ja-JP':'JPY' }}</li>
+     <li>India (INR, no decimals): {{ '98765.43' | currencyLocale:'en-IN':'INR':{ minimumFractionDigits: 0, maximumFractionDigits: 0 } }}</li>
+   </ul>
+   <hr />
+   <app-product-list />
+ </div>

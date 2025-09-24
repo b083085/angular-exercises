@@ -1,0 +1,17 @@
+<div class="container">
+  <nav class="navbar">
+    <a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+    <a routerLink="/user/202509110001" routerLinkActive="active-link">User 202509110001</a>
+    <a routerLink="/user/byron" routerLinkActive="active-link">User byron</a>
+  </nav>
+
+  <div class="click-row" style="justify-content:center; align-items:center; gap:8px;">
+    <span>Current user type:</span>
+    <strong>{{ currentUserType }}</strong>
+    <button class="btn ghost" (click)="setUserType('guest')">Guest</button>
+    <button class="btn secondary" (click)="setUserType('member')">Member</button>
+    <button class="btn primary" (click)="setUserType('admin')">Admin</button>
+  </div>
+
+  <router-outlet></router-outlet>
+</div>

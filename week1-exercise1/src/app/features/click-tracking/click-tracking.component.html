@@ -1,0 +1,13 @@
+<h2>Click Tracking Directive</h2>
+<div class="click-row">
+  <button appClickTrack="primary-btn" class="btn primary">Primary</button>
+  <button appClickTrack="secondary-btn" class="btn secondary">Secondary</button>
+  <button appClickTrack class="btn ghost">Auto-ID</button>
+</div>
+
+<div class="counts">
+  <h3>Live Counts</h3>
+  <ul>
+    <li *ngFor="let item of (counts$ | async)"><code>{{item.id}}</code>: {{item.count}}</li>
+  </ul>
+</div>

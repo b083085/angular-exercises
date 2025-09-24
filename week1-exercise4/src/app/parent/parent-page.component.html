@@ -1,0 +1,38 @@
+    <div class="section">
+      <h2>Parent Page</h2>
+      <p>Sample items owned by parent:</p>
+      <ul>
+        <li *ngFor="let it of items">{{ it.name }} - {{ it.description }}</li>
+      </ul>
+    </div>
+
+    <div class="section spaced">
+      <h3>1) Input binding</h3>
+      <p>Parent passes selected item to a sibling display via &#64;Input.</p>
+      <app-sibling-picker [items]="items" (picked)="onPicked($event)"/>
+      <app-sibling-display [item]="selectedItem"/>
+    </div>
+
+    <div class="section spaced">
+      <h3>2) Event binding</h3>
+      <p>Sibling picker emits an event. Parent handles it and updates the bound input of sibling display.</p>
+      <app-sibling-picker [items]="items" (picked)="selectedItem = $event"/>
+      <app-sibling-display [item]="selectedItem"/>
+    </div>
+
+    <div class="section spaced">
+      <h3>3) ViewChild</h3>
+      <p>Parent holds a ViewChild reference to the display and calls its method to set data.</p>
+      <div class="actions">
+        <button class="btn" *ngFor="let it of items" (click)="setViaViewChild(it)">Set {{ it.name }}</button>
+        <button class="btn" (click)="setViaViewChild(null)">Clear</button>
+      </div>
+      <app-viewchild-display #vcDisplay/>
+    </div>
+
+    <div class="section spaced">
+      <h3>4) RxJS Service</h3>
+      <p>Publisher sibling publishes item to a shared service; subscriber sibling listens.</p>
+      <app-rxjs-publisher [items]="items"/>
+      <app-rxjs-subscriber/>
+    </div>

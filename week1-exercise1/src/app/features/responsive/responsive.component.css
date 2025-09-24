@@ -1,0 +1,41 @@
+ .legend {
+   max-width: 380px;
+   margin: 0.5rem auto;
+   text-align: left;
+   list-style: none;
+   padding: 0;
+ }
+
+ .chip {
+   display: inline-block;
+   width: 14px;
+   height: 14px;
+   border-radius: 3px;
+   margin-right: 8px;
+ }
+
+ .responsive-box {
+   margin: 1.0rem auto;
+   padding: 1rem;
+   border-radius: 8px;
+   color: #222;
+   max-width: 420px;
+   transition: background-color 0.2s ease, box-shadow 0.2s ease;
+   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+ }
+
+ /* Responsive classes */
+ .is-sm,
+ .chip.is-sm {
+   background-color: #e3f2fd;
+ }
+
+ .is-md,
+ .chip.is-md {
+   background-color: #e8f5e9;
+ }
+
+ .is-lg,
+ .chip.is-lg {
+   background-color: #fff3e0;
+ }

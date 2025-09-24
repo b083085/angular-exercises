@@ -1,0 +1,6 @@
+<h4>Sibling Picker (Output)</h4>
+<div class="actions">
+  <button *ngFor="let it of items" (click)="select(it)" class="btn">
+    Select {{ it.name }}
+  </button>
+</div>

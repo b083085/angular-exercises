@@ -1,0 +1,5 @@
+<div *ngIf="item" class="card">
+  <div class="title">{{ item.name }} (ID: {{ item.id }})</div>
+  <div class="desc">{{ item.description }}</div>
+</div>
+<div *ngIf="!item" class="no-item">No item selected</div>

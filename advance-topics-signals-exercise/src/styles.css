@@ -1,0 +1,39 @@
+/* Global styles for the Angular Signals Counter Demo */
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f8fafc;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Ensure consistent button styling across browsers */
+button {
+  font-family: inherit;
+}
+
+/* Focus styles for accessibility */
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* Smooth transitions for all interactive elements */
+button, input, .property {
+  transition: all 0.3s ease;
+}
+
+/* Prevent text selection on buttons */
+.action-btn, .toggle-btn, .clear-btn {
+  user-select: none;
+}
